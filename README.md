@@ -1,52 +1,79 @@
-# PocketCam
+# ✦ PocketCam 📷🐻 ✦
 
-A portable ESP32 based digital camera with local wireless photo sharing 
+> a tiny portable digicam for capturing little moments and sharing them with friends ♡
 
-PocketCam is a handheld camera that captures real photographs on a physical shutter press, saves them to a microSD card, and hosts its own offline Wi-Fi gallery so friends can view and download photos directly from the camera without internet access or any cloud service 
+PocketCam is a portable ESP32-based digital camera designed for taking fun and meaningful photos during outings with friends 🌷
 
-## Status
+The camera captures real JPEG photographs using a physical shutter button, saves them locally to a microSD card and hosts its own offline Wi-Fi photo gallery. Friends can connect using their phones to view and download photos without internet access or cloud storage ✨
 
-Current stage: MVP in progress. See `CHANGELOG.md` for a running log of build decisions and problems encountered.
+---
 
-## Project structure
+## ⋆｡°✩ Project Status ✩°｡⋆
 
-```
-firmware/           ESP32 code, organised by build stage
-hardware/            Schematics, pin mapping, component list and power system notes
-simulation/          Wokwi simulation files and screenshots used before physical wiring
-web-dashboard/       HTML, CSS and JS served by the camera for the local photo gallery
-enclosure/           CAD files, renders and STL files for the handheld housing
-documentation/       Project proposal, architecture notes, flowcharts and test results
-images/              Photos of the prototype and final device
-```
+🌱 **Planning and waiting for components**
 
-## Firmware folders
+The project concept and initial proposal are complete. The first hardware components have been ordered and development will begin once they arrive 📦🐰
 
-The `firmware/` directory keeps each build stage as a separate sketch rather than overwriting earlier work. This makes it possible to see how the project was built up:
+---
 
-- `camera-test/` — first working camera capture, no storage or networking yet
-- `sd-storage/` — adds numbered JPEG storage to microSD
-- `wifi-gallery/` — adds the local access point and web gallery
-- `final-firmware/` — the current combined build, this is the one that runs on the actual device
+## 🐻 PocketCam Features
 
-If you are only looking for the current working version, go straight to `final-firmware/`.
+### ✦ Core Features
 
-## MVP scope
+- 📸 Physical shutter button
+- 🖼️ Real JPEG photo capture
+- 💾 Numbered photo storage on a microSD card
+- 🌙 1.28-inch round colour TFT display
+- 🔋 Portable rechargeable operation
+- 🎀 Physical power switch
+- 📡 Offline Wi-Fi access point
+- 🌐 Local photo gallery
+- 📱 View and download photos using a phone
+- ☁️ No internet or cloud service required
+- 🏠 Custom handheld camera enclosure
 
-- Physical shutter button that reliably captures a photo on press
-- Photos saved as numbered JPEG files to a microSD card
-- Rechargeable battery operation with a power switch
-- Onboard status indicator showing ready, capturing and saved states
-- Local Wi-Fi access point hosted by the camera itself
-- A simple web gallery page that lists photos and allows downloading them from a connected phone
+### ✦ Future Features
 
-Stretch goals and full project scope are documented in `documentation/project-proposal.docx`.
+- 🐰 Photo booth mode
+- ⏳ Self-timer mode
+- 🌷 Session-based albums for different outings
+- ⭐ QR code for quick Wi-Fi connection
+- 🎁 Surprise gallery mode
+- 🔋 Battery-level display
+- 🔔 Custom shutter sounds
+- 🎨 Simple photo effects
+- 🐾 Short burst-photo mode
 
-## Hardware
+---
 
-See `hardware/component-list/` for the full parts list and `hardware/pin-mapping/` for GPIO assignments.
+## ✧ How PocketCam Works ✧
 
-## Author
+```text
+            📸
+     PRESS THE SHUTTER
+              │
+              ▼
+       ╭────────────╮
+       │ POCKETCAM  │
+       │ ESP32-CAM  │
+       ╰─────┬──────╯
+             │
+      ┌──────┴──────┐
+      ▼             ▼
+  📷 CAMERA      💾 microSD
+  captures       saves photos
+  the photo      locally
+      │
+      ▼
+   📡 OFFLINE WI-FI
+      │
+      ▼
+   📱 PHOTO GALLERY
+      │
+      ▼
+friends can view and
+download their photos ♡
+
 
 Sangeetha Rajsubramanian (Stel)
-sangeetha.rajsubramanian@gmail.com | linkedin.com/in/sangeetharajsubramanian
+sangeetha.rajsubramanian@gmail.com | www.linkdin/in/sangeetharajsubramanian
