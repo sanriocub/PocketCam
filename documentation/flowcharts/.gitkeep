@@ -1,51 +1,24 @@
-# ✦ PocketCam Firmware Flowcharts 📷🐻
-
-## Main System Process
+# ✦ PocketCam Firmware Flowchart 📷🐻
 
 ```mermaid
 flowchart TD
-    A([Power On]) --> B[Display PocketCam Startup Screen]
+    A([Power On]) --> B[Show Startup Screen]
     B --> C[Initialise Camera]
     C --> D{Camera Working?}
-
-    D -- No --> E[Display Camera Error]
-    E --> F[Retry Initialisation]
+    D -- Yes --> E[Initialise microSD Card]
+    D -- No --> F[Show Camera Error]
     F --> C
-
-    D -- Yes --> G[Initialise microSD Card]
-    G --> H{SD Card Detected?}
-
-    H -- No --> I[Display SD Card Error]
-    I --> J[Retry SD Initialisation]
-    J --> G
-
-    H -- Yes --> K[Find Next Photo Number]
-    K --> L[Display Ready Screen]
-
-    L --> M{User Action}
-
-    M -- Press Shutter --> N[Capture Photograph]
-    M -- Open Gallery --> O[Start Offline Wi-Fi Gallery]
-    M -- Open Menu --> P[Display Camera Settings]
-
-    N --> Q{Image Captured?}
-
-    Q -- No --> R[Display Capture Error]
-    R --> L
-
-    Q -- Yes --> S[Generate JPEG Filename]
-    S --> T[Save Photograph to microSD]
-    T --> U{Photo Saved?}
-
-    U -- No --> V[Display Storage Error]
-    V --> L
-
-    U -- Yes --> W[Increase Photo Counter]
-    W --> X[Display Photo Saved]
-    X --> L
-
-    O --> Y[Allow Phone to View and Download Photos]
-    Y --> L
-
-    P --> L
+    E --> G{SD Card Detected?}
+    G -- Yes --> H[Display Ready Screen]
+    G -- No --> I[Show SD Card Error]
+    I --> E
+    H --> J{Shutter Pressed?}
+    J -- Yes --> K[Capture Photo]
+    J -- No --> H
+    K --> L[Save Photo to microSD]
+    L --> M{Photo Saved?}
+    M -- Yes --> N[Show Photo Saved]
+    M -- No --> O[Show Storage Error]
+    N --> H
+    O --> H
 ```
