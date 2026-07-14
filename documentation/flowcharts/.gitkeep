@@ -1,1 +1,21 @@
-Firmware state machine and process flowcharts.
+stateDiagram-v2
+    [*] --> PowerOff
+
+    PowerOff --> Startup: power switch on
+
+    Startup --> Initialising: begin setup
+
+    Initialising --> Ready: camera and SD card ready
+    Initialising --> Error: initialisation failed
+
+    Ready --> Capturing: shutter button pressed
+    Ready --> GalleryMode: gallery mode selected
+    Ready --> SettingsMode: mode button pressed
+    Ready --> LowBattery: battery below threshold
+    Ready --> PowerOff: power switch off
+
+    Capturing --> Saving: image captured successfully
+    Capturing --> Error: camera capture failed
+
+    Saving --> PhotoSaved: JPEG written to microSD
+    Saving --> Error: SD write failed
