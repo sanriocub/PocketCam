@@ -45,9 +45,7 @@ The project concept and initial proposal are complete. The first hardware compon
 - 🐾 Short burst-photo mode
 
 ---
-Sangeetha Rajsubramanian (Stel)
-sangeetha.rajsubramanian@gmail.com | www.linkedin/in/sangeetharajsubramanian
----
+
 
 ## ✧ How PocketCam Works ✧
 
@@ -76,6 +74,5 @@ sangeetha.rajsubramanian@gmail.com | www.linkedin/in/sangeetharajsubramanian
       ▼
 friends can view and
 download their photos ♡
-
 
 
