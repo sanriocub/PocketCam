@@ -1,0 +1,28 @@
+# Node (web-dashboard tooling, if any)
+node_modules/
+npm-debug.log*
+
+# Arduino / PlatformIO build artifacts
+.pio/
+.vscode/
+*.o
+*.elf
+*.bin
+*.hex
+build/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+
+# CAD autosave and lock files
+*.blend1
+~$*
+
+# Large exported renders (keep source CAD files, not every export)
+enclosure/renders/*.mp4
+
+# Local environment files
+.env

@@ -1,0 +1,2 @@
+GPIO pin assignments for the ESP32-CAM: shutter button, status LED,
+SD card interface and any additional sensors.
