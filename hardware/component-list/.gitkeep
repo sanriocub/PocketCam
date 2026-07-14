@@ -1,2 +1,23 @@
-Place the final hardware component list here (spreadsheet or markdown table),
-matching the table in documentation/project-proposal.docx.
+# PocketCam Hardware Component List
+
+Updated after deciding to include a live preview screen. The board choice moved from a bare ESP32-CAM to a combined camera and TFT touch board, since this integrates the camera, screen and SD slot on one PCB and avoids GPIO conflicts from wiring a separate screen by hand.
+
+| Component | Purpose | Notes |
+|---|---|---|
+| ESP32-WROVER camera and TFT combo board (e.g. Makerfabs 3.2 inch or 3.5 inch TFT touch with camera) | Main controller, camera, live preview screen and SD slot in one unit | OV2640 camera, ILI9341 or ILI9488 SPI TFT, 8MB PSRAM, roughly 14 GPIO still free for other components. Fallback if unavailable locally: separate ESP32-S3 board plus a small SPI TFT such as ST7789 |
+| MicroSD card | Photo storage | Usually built into the combo board slot, confirm before buying a separate module |
+| Physical shutter button | Trigger photo capture | Simple momentary push button |
+| LiPo battery and TP4056 module | Portable rechargeable power | Confirm charging and discharge current limits, and that the combo board's power draw with the screen active is accounted for |
+| Status LED | Simple ready, capturing and saved indication alongside the screen | Optional now that the screen can show status text directly |
+| Power switch | Turn device on and off | Should not require removing the battery |
+| Custom enclosure | Handheld housing with a cut out for the screen | Design after core electronics are validated |
+
+## Sourcing notes
+
+- The combo board is a specialty item, mainly sold directly by manufacturers like Makerfabs or through AliExpress. Not confirmed as reliably stocked on Shopee Malaysia. Try searching Shopee for "ESP32 TFT touch camera 3.2 inch" or "ESP32 WROVER camera screen module" first.
+- If nothing suitable turns up locally, AliExpress is the realistic fallback for this specific part.
+- Fallback path: ESP32-S3 dev board (more GPIO and RAM than the AI-Thinker) plus a separate small SPI TFT module (ST7789 or ILI9341), wired manually. More work and more failure prone, but fully possible, there is a public reference project pairing an ESP32 camera feed with an ST7789 screen that can serve as a starting point.
+
+## Risk flag
+
+Running a live camera preview, Wi-Fi and photo capture at the same time is the single biggest technical risk in the project. Budget this as the main technical challenge of the build rather than a simple add-on.
