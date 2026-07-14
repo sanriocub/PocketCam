@@ -19,3 +19,22 @@ stateDiagram-v2
 
     Saving --> PhotoSaved: JPEG written to microSD
     Saving --> Error: SD write failed
+
+    PhotoSaved --> Ready: confirmation complete
+
+    SettingsMode --> SelfTimer: self timer selected
+    SettingsMode --> Ready: exit settings
+
+    SelfTimer --> Countdown: shutter button pressed
+    Countdown --> Capturing: countdown finished
+    Countdown --> Ready: countdown cancelled
+
+    GalleryMode --> Ready: gallery mode closed
+    GalleryMode --> Error: Wi-Fi or server error
+
+    LowBattery --> Ready: power restored
+    LowBattery --> PowerOff: battery critically low
+
+    Error --> Initialising: retry selected
+    Error --> Ready: recoverable error cleared
+    Error --> PowerOff: unrecoverable error
