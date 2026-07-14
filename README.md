@@ -1,8 +1,8 @@
 # PocketCam
 
-A portable ESP32 based digital camera with local wireless photo sharing.
+A portable ESP32 based digital camera with local wireless photo sharing 
 
-PocketCam is a handheld camera that captures real photographs on a physical shutter press, saves them to a microSD card, and hosts its own offline Wi-Fi gallery so friends can view and download photos directly from the camera without internet access or any cloud service.
+PocketCam is a handheld camera that captures real photographs on a physical shutter press, saves them to a microSD card, and hosts its own offline Wi-Fi gallery so friends can view and download photos directly from the camera without internet access or any cloud service 
 
 ## Status
 
@@ -48,5 +48,5 @@ See `hardware/component-list/` for the full parts list and `hardware/pin-mapping
 
 ## Author
 
-Sangeetha Raj Subramanian (Stel)
-gcfstel@gmail.com | linkedin.com/in/sangeetharajsubramanian
+Sangeetha Rajsubramanian (Stel)
+sangeetha.rajsubramanian@gmail.com | linkedin.com/in/sangeetharajsubramanian
