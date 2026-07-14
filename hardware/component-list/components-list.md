@@ -15,7 +15,7 @@ PocketCam is a portable ESP32-based digital camera designed to capture JPEG phot
 | ESP32-CAM development board | 1 | 📦 Ordered | Main microcontroller, camera processing, Wi-Fi communication and embedded web server |
 | OV2640 camera module | 1 | 📦 Included | Captures photographs and provides image data to the ESP32-CAM |
 | ESP32-CAM USB programmer base | 1 | 📦 Ordered | Allows firmware uploading, serial debugging and USB-powered development |
-| Micro-USB data cable | 1 | ⏳ To confirm | Connects the USB programmer base to a computer |
+| Micro-USB data cable | 1 | 📦 Ordered | Connects the USB programmer base to a computer |
 
 ### ESP32-CAM responsibilities
 
