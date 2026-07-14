@@ -1,40 +1,51 @@
-stateDiagram-v2
-    [*] --> PowerOff
+# ✦ PocketCam Firmware Flowcharts 📷🐻
 
-    PowerOff --> Startup: power switch on
+## Main System Process
 
-    Startup --> Initialising: begin setup
+```mermaid
+flowchart TD
+    A([Power On]) --> B[Display PocketCam Startup Screen]
+    B --> C[Initialise Camera]
+    C --> D{Camera Working?}
 
-    Initialising --> Ready: camera and SD card ready
-    Initialising --> Error: initialisation failed
+    D -- No --> E[Display Camera Error]
+    E --> F[Retry Initialisation]
+    F --> C
 
-    Ready --> Capturing: shutter button pressed
-    Ready --> GalleryMode: gallery mode selected
-    Ready --> SettingsMode: mode button pressed
-    Ready --> LowBattery: battery below threshold
-    Ready --> PowerOff: power switch off
+    D -- Yes --> G[Initialise microSD Card]
+    G --> H{SD Card Detected?}
 
-    Capturing --> Saving: image captured successfully
-    Capturing --> Error: camera capture failed
+    H -- No --> I[Display SD Card Error]
+    I --> J[Retry SD Initialisation]
+    J --> G
 
-    Saving --> PhotoSaved: JPEG written to microSD
-    Saving --> Error: SD write failed
+    H -- Yes --> K[Find Next Photo Number]
+    K --> L[Display Ready Screen]
 
-    PhotoSaved --> Ready: confirmation complete
+    L --> M{User Action}
 
-    SettingsMode --> SelfTimer: self timer selected
-    SettingsMode --> Ready: exit settings
+    M -- Press Shutter --> N[Capture Photograph]
+    M -- Open Gallery --> O[Start Offline Wi-Fi Gallery]
+    M -- Open Menu --> P[Display Camera Settings]
 
-    SelfTimer --> Countdown: shutter button pressed
-    Countdown --> Capturing: countdown finished
-    Countdown --> Ready: countdown cancelled
+    N --> Q{Image Captured?}
 
-    GalleryMode --> Ready: gallery mode closed
-    GalleryMode --> Error: Wi-Fi or server error
+    Q -- No --> R[Display Capture Error]
+    R --> L
 
-    LowBattery --> Ready: power restored
-    LowBattery --> PowerOff: battery critically low
+    Q -- Yes --> S[Generate JPEG Filename]
+    S --> T[Save Photograph to microSD]
+    T --> U{Photo Saved?}
 
-    Error --> Initialising: retry selected
-    Error --> Ready: recoverable error cleared
-    Error --> PowerOff: unrecoverable error
+    U -- No --> V[Display Storage Error]
+    V --> L
+
+    U -- Yes --> W[Increase Photo Counter]
+    W --> X[Display Photo Saved]
+    X --> L
+
+    O --> Y[Allow Phone to View and Download Photos]
+    Y --> L
+
+    P --> L
+```
